@@ -1,0 +1,5 @@
+models/*
+results/*
+*.pyc
+*.dot
+settings.json

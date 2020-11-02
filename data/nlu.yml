@@ -1,0 +1,100 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - fweoh
+- intent: inform
+  examples: |
+    - [bad](joke_type) one
+    - a [good](joke_type) one
+    - [bad](joke_type)
+    - [funny](joke_type)
+    - [67b](quantity)
+    - [buy](order_side)
+    - it is a [sell](order_side)
+    - a [twap](order_type) order
+    - [vwap](order_type)
+    - [twap](order_type)
+    - [35m](quantity)
+    - it is [eurgbp](currency)
+    - [EURUSD](currency)
+    - it's [eurjpy](currency)
+    - it's a [eurjpy](currency) order
+    - [sell](order_side) please
+    - [45m](quantity)
+    - [25k](quantity)
+    - [eurusd](currency) please
+    - [twap](order_type)
+    - [sell](order_side) please
+    - [56k](quantity) [EURUSD](currency) order
+- intent: ask_chuck_joke
+  examples: |
+    - Tell me a [good](joke_type) Chuck Norris joke
+    - How about a Chuck Norris joke ?
+    - Give me a [bad](joke_type) Chuck joke.
+    - Hit me up with a Chuck Norris
+    - A Chuck joke please
+    - Tell a Chuck Norris fact
+    - I need a [funny](joke_type) Chuck Norris story
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+- intent: thanks
+  examples: |
+    - thank you
+    - thanks
+    - Oh great
+    - cool
+- intent: request_tcm
+  examples: |
+    - Tell me the cost of executing a [twap](order_type) order on eurgbp(currency) for [50m](quantity) [sell](order_side)
+    - TCM of a [vwap](order_type) order on eurusd(currency)
+    - need a tcm [twap](order_type) order [eurusd](currency)
+    - Please inform the cost of executing an order
+    - Can I get the execution cost of an algo order ?
+    - I need the tcm of an algo order
+    - TCM of a [eurgbp](currency) [26k](quantity) [twap](order_type)
+    - Cost of a [twap](order_type) order
+    - need a tcm for an algo order
+- synonym: good
+  examples: |
+    - good
+    - funny
+- regex: quantity
+  examples: |
+    - \d{1,4}[bmk]
+- lookup: currency
+  examples: |
+    - eurusd
+    - eurgbp
+    - audcad
+    - eurjpy
+    - audjpy
+    - eursek
+    - gbpusd
+- lookup: order_type
+  examples: |
+    - twap
+    - vwap

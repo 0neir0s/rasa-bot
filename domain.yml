@@ -1,0 +1,76 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- goodbye
+- inform
+- request_tcm
+- greet
+- bot_challenge
+- ask_chuck_joke
+- thanks
+entities:
+- currency
+- joke_type
+- order_side
+- order_type
+- quantity
+slots:
+  currency:
+    type: text
+    influence_conversation: true
+  joke_type:
+    type: text
+    influence_conversation: true
+  order_side:
+    type: text
+    influence_conversation: true
+  order_type:
+    type: text
+    influence_conversation: true
+  quantity:
+    type: text
+    influence_conversation: true
+  requested_slot:
+    type: text
+    influence_conversation: false
+responses:
+  utter_type:
+  - text: Do you want a good one or a bad one ?
+  utter_greet:
+  - text: Hey! How are you?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_welcome:
+  - text: Happy to be of service.
+  utter_ask_currency:
+  - text: What is the currency pair of the order ?
+  utter_ask_order_type:
+  - text: Which order type do you have in mind ?
+  utter_ask_order_side:
+  - text: Is it buy or sell ?
+  utter_ask_quantity:
+  - text: What is the order quantity ?
+actions:
+- action_joke
+- action_tcm
+- utter_goodbye
+- utter_greet
+- utter_type
+forms:
+  tcm_form:
+    currency:
+    - type: from_entity
+      entity: currency
+    order_type:
+    - type: from_entity
+      entity: order_type
+    order_side:
+    - type: from_entity
+      entity: order_side
+    quantity:
+    - type: from_entity
+      entity: quantity
+version: '2.0'

@@ -1,0 +1,61 @@
+version: "2.0"
+
+stories:
+
+- story: chuck norris direct
+  steps:
+  - intent: ask_chuck_joke
+    entities:
+      - joke_type: "bad"
+  - action: action_joke
+
+- story: chuck norris interactive
+  steps:
+  - intent: ask_chuck_joke
+  - action: utter_type
+  - intent: inform
+    entities:
+      - joke_type: "bad" 
+  - action: action_joke
+
+- story: tcm workflow
+  steps:
+  - intent: request_tcm
+  - action: tcm_form
+  - active_loop: tcm_form
+  - active_loop: null
+  - action: action_tcm
+
+- story: interactive_story_1
+  steps:
+  - intent: request_tcm
+  - action: tcm_form
+  - active_loop: tcm_form
+  - slot_was_set:
+    - requested_slot: currency
+  - slot_was_set:
+    - currency: eurusd
+  - slot_was_set:
+    - currency: eurusd
+  - slot_was_set:
+    - requested_slot: order_type
+  - slot_was_set:
+    - order_type: twap
+  - slot_was_set:
+    - order_type: twap
+  - slot_was_set:
+    - requested_slot: order_side
+  - slot_was_set:
+    - order_side: sell
+  - slot_was_set:
+    - order_side: sell
+  - slot_was_set:
+    - requested_slot: quantity
+  - slot_was_set:
+    - quantity: 56k
+  - slot_was_set:
+    - quantity: 56k
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_tcm
